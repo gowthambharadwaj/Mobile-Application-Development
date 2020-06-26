@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">InClass07</string>
+    <string name="mm_dd_yyyy">mm dd yyyy</string>
+    <string name="date">Date:</string>
+    <string name="artistname">ArtistName</string>
+    <string name="artist">Artist:</string>
+    <string name="albumname">AlbumName</string>
+    <string name="album">Album:</string>
+    <string name="trackname">TrackName</string>
+    <string name="track">Track:</string>
+</resources>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Inclass04</string>
+    <string name="select_complexity">Select complexity:</string>
+    <string name="complexity">complexity</string>
+    <string name="min">Minimum</string>
+    <string name="mini">Mini</string>
+    <string name="average">Average</string>
+    <string name="avg">avg</string>
+    <string name="max">max</string>
+</resources>

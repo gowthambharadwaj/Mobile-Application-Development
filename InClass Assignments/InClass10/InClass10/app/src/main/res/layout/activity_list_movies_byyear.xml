@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListMoviesByyear">
+
+    <TextView
+        android:id="@+id/dyRating"
+        android:layout_width="95dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="Rating:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dyGenre" />
+
+    <TextView
+        android:id="@+id/listYearText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Movies By Year"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dyName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.536" />
+
+    <TextView
+        android:id="@+id/dyName"
+        android:layout_width="83dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="103dp"
+        android:gravity="center_vertical"
+        android:text="Name:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dyDescription"
+        android:layout_width="84dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="140dp"
+        android:gravity="center_vertical"
+        android:text="Description:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dyNameDisplay"
+        android:layout_width="215dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="38dp"
+        app:layout_constraintStart_toEndOf="@+id/dyName"
+        app:layout_constraintTop_toBottomOf="@id/listYearText" />
+
+    <TextView
+        android:id="@+id/dyDescriptionDisplay"
+        android:layout_width="351dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dyDescription" />
+
+    <TextView
+        android:id="@+id/dyGenre"
+        android:layout_width="95dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:text="Genre:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dyDescriptionDisplay" />
+
+    <TextView
+        android:id="@+id/dyGenreDisplay"
+        android:layout_width="199dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dyDescriptionDisplay" />
+
+    <TextView
+        android:id="@+id/dyRatingDisplay"
+        android:layout_width="199dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dyGenreDisplay" />
+
+    <TextView
+        android:id="@+id/dyYear"
+        android:layout_width="95dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="Year:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dyRating" />
+
+    <TextView
+        android:id="@+id/dyYearDisplay"
+        android:layout_width="199dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dyRatingDisplay" />
+
+    <TextView
+        android:id="@+id/dyIMDB"
+        android:layout_width="95dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="IMDB:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dyYear" />
+
+    <TextView
+        android:id="@+id/dyIMDBDisplay"
+        android:layout_width="325dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dyIMDB" />
+
+    <Button
+        android:id="@+id/dyFinish"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:text="Finish"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dyIMDBDisplay" />
+
+    <ImageView
+        android:id="@+id/dyPrev"
+        android:layout_width="43dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/dyFinish"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dyIMDBDisplay"
+        app:srcCompat="@drawable/previous" />
+
+    <ImageView
+        android:id="@+id/dyFirst"
+        android:layout_width="43dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintEnd_toStartOf="@+id/dyPrev"
+        app:layout_constraintTop_toBottomOf="@+id/dyIMDBDisplay"
+        app:srcCompat="@drawable/first" />
+
+    <ImageView
+        android:id="@+id/dyNext"
+        android:layout_width="43dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/dyFinish"
+        app:layout_constraintTop_toBottomOf="@+id/dyIMDBDisplay"
+        app:srcCompat="@drawable/next" />
+
+    <ImageView
+        android:id="@+id/dyLast"
+        android:layout_width="43dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/dyNext"
+        app:layout_constraintTop_toBottomOf="@id/dyIMDBDisplay"
+        app:srcCompat="@drawable/last" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListMoviesByRating">
+
+    <TextView
+        android:id="@+id/listRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Movies By Rating"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/drName"
+        android:layout_width="83dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="103dp"
+        android:text="Name:"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/drNameDisplay"
+        android:layout_width="215dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toEndOf="@+id/drName"
+        app:layout_constraintTop_toBottomOf="@+id/listRating" />
+
+    <TextView
+        android:id="@+id/drDescription"
+        android:layout_width="85dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:text="Description:"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drName" />
+
+    <TextView
+        android:id="@+id/drDescriptionDisplay"
+        android:layout_width="358dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drDescription" />
+
+    <TextView
+        android:id="@+id/drGenre"
+        android:layout_width="95dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:text="Genre:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drDescriptionDisplay" />
+
+    <TextView
+        android:id="@+id/drGenreDisplay"
+        android:layout_width="199dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toEndOf="@+id/drGenre"
+        app:layout_constraintTop_toBottomOf="@+id/drDescriptionDisplay" />
+
+    <TextView
+        android:id="@+id/drRating"
+        android:layout_width="95dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="Rating:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/drGenre" />
+
+    <TextView
+        android:id="@+id/drRatingDisplay"
+        android:layout_width="199dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/drGenre"
+        app:layout_constraintTop_toBottomOf="@id/drGenreDisplay" />
+
+    <TextView
+        android:id="@+id/drYear"
+        android:layout_width="95dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="Year:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/drRating" />
+
+    <TextView
+        android:id="@+id/drYearDisplay"
+        android:layout_width="199dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/drYear"
+        app:layout_constraintTop_toBottomOf="@id/drRatingDisplay" />
+
+    <TextView
+        android:id="@+id/drIMDB"
+        android:layout_width="95dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="IMDB:"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/drYear" />
+
+    <TextView
+        android:id="@+id/drIMDBDisplay"
+        android:layout_width="325dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drIMDB" />
+
+    <Button
+        android:id="@+id/drFinish"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:text="Finish"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drIMDBDisplay" />
+
+    <ImageView
+        android:id="@+id/drNext"
+        android:layout_width="43dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/drFinish"
+        app:layout_constraintTop_toBottomOf="@+id/drIMDBDisplay"
+        app:srcCompat="@drawable/next" />
+
+    <ImageView
+        android:id="@+id/drLast"
+        android:layout_width="43dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/drNext"
+        app:layout_constraintTop_toBottomOf="@id/drIMDBDisplay"
+        app:srcCompat="@drawable/last" />
+
+    <ImageView
+        android:id="@+id/drPrev"
+        android:layout_width="43dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/drFinish"
+        app:layout_constraintTop_toBottomOf="@+id/drIMDBDisplay"
+        app:srcCompat="@drawable/previous" />
+
+    <ImageView
+        android:id="@+id/drFirst"
+        android:layout_width="43dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/drPrev"
+        app:layout_constraintTop_toBottomOf="@+id/drIMDBDisplay"
+        app:srcCompat="@drawable/first" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

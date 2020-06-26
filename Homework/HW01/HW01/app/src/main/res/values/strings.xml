@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">HW01</string>
+    <string name="bmi">Body Mass Index (BMI)</string>
+    <string name="weight">Weight</string>
+    <string name="heigh">Height</string>
+    <string name="btn">Calculate BMI</string>
+    <string name="bmi_res1">TextView</string>
+    <string name="bmi_res2">TextView</string>
+    <string name="lb">lb</string>
+    <string name="ft">ft</string>
+    <string name="inches">inch</string>
+</resources>
