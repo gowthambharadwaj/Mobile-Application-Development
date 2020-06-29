@@ -1,7 +1,4 @@
-    package com.example.inclass07;
-
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.inclass07;
 
 import android.content.Context;
 import android.content.Intent;
@@ -23,6 +20,9 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,20 +32,13 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
 
 /*
-* Submitted by Gowtham Bharadwaj and Rajath Anand
-* */
+ * Submitted by Gowtham Bharadwaj and Rajath Anand
+ * */
 
-    public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     EditText et_search;
     SeekBar sb;
@@ -85,7 +78,7 @@ import java.util.Locale;
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch (rg.getCheckedRadioButtonId()){
+                switch (rg.getCheckedRadioButtonId()) {
                     case R.id.radioButton:
                         selected_btn = "s_track_rating";
                         break;
@@ -99,7 +92,7 @@ import java.util.Locale;
         sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                textView.setText(i+" ");
+                textView.setText(i + " ");
             }
 
             @Override
@@ -118,25 +111,23 @@ import java.util.Locale;
             public void onClick(View view) {
                 String search_name = et_search.getText().toString();
 
-                if(search_name.equals("")||selected_btn.equals("")){
+                if (search_name.equals("") || selected_btn.equals("")) {
                     et_search.setError("Enter value");
-                }
-                else{
+                } else {
                     int limit = sb.getProgress();
 
-                    if(isConnected()){
-                        Log.d("demo","data is here: "+search_name+"button:  "+selected_btn+"limit: "+limit);
+                    if (isConnected()) {
+                        Log.d("demo", "data is here: " + search_name + "button:  " + selected_btn + "limit: " + limit);
 
                         musics.clear();
 
 
-                        new getDataAsync().execute("http://api.musixmatch.com/ws/1.1/track.search?q="+search_name+"&page_size="+limit+"&"+selected_btn+"=desc&apikey=877ff80c6d2ea5b74e9fc28b2ca3040b");
+                        new getDataAsync().execute("http://api.musixmatch.com/ws/1.1/track.search?q=" + search_name + "&page_size=" + limit + "&" + selected_btn + "=desc&apikey=877ff80c6d2ea5b74e9fc28b2ca3040b");
 
+                    } else {
+                        Toast.makeText(MainActivity.this, "No connection", Toast.LENGTH_SHORT).show();
                     }
-                    else {
-                        Toast.makeText(MainActivity.this,"No connection",Toast.LENGTH_SHORT).show();
-                    }
-                    Log.d("demo","Selected items: "+search_name+"  button selected: "+selected_btn+"limit: "+limit);
+                    Log.d("demo", "Selected items: " + search_name + "  button selected: " + selected_btn + "limit: " + limit);
 
                 }
 
@@ -144,126 +135,120 @@ import java.util.Locale;
         });
 
 
-
-
-
     }
 
-        private boolean isConnected() {
-            ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+    private boolean isConnected() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
-            if (networkInfo == null || !networkInfo.isConnected() ||
-                    (networkInfo.getType() != ConnectivityManager.TYPE_WIFI
-                            && networkInfo.getType() != ConnectivityManager.TYPE_MOBILE)) {
-                return false;
-            }
-            return true;
+        if (networkInfo == null || !networkInfo.isConnected() ||
+                (networkInfo.getType() != ConnectivityManager.TYPE_WIFI
+                        && networkInfo.getType() != ConnectivityManager.TYPE_MOBILE)) {
+            return false;
         }
+        return true;
+    }
 
-        private class getDataAsync extends AsyncTask<String, Void, ArrayList<Music>> {
+    private class getDataAsync extends AsyncTask<String, Void, ArrayList<Music>> {
 
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            protected ArrayList<Music> doInBackground(String... strings) {
-                URL url = null;
-                HttpURLConnection connection = null;
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        @Override
+        protected ArrayList<Music> doInBackground(String... strings) {
+            URL url = null;
+            HttpURLConnection connection = null;
 
-                try {
-                    url = new URL(strings[0]);
-                    connection = (HttpURLConnection) url.openConnection();
-                    connection.connect();
+            try {
+                url = new URL(strings[0]);
+                connection = (HttpURLConnection) url.openConnection();
+                connection.connect();
 
-                    Log.d("demo","URL: "+url);
+                Log.d("demo", "URL: " + url);
 
-                    if(connection.getResponseCode() == HttpURLConnection.HTTP_OK){
+                if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
 
-                        Log.d("demo","data inside");
+                    Log.d("demo", "data inside");
 
-                        String json = IOUtils.toString(connection.getInputStream(), "UTF-8");
-                        JSONObject jsonObject = new JSONObject(json);
-                        JSONObject message = jsonObject.getJSONObject("message");
-                        JSONObject body = message.getJSONObject("body");
-                        JSONArray track_list =body.getJSONArray("track_list");
-                        for(int i=0;i<track_list.length();i++){
-                            Music music = new Music();
-                            JSONObject jobj = track_list.getJSONObject(i).getJSONObject("track");
-                            music.trackname = jobj.getString("track_name");
-                            music.artistname = jobj.getString("artist_name");
-                            music.albumname = jobj.getString("album_name");
-                            music.url = jobj.getString("track_share_url");
+                    String json = IOUtils.toString(connection.getInputStream(), "UTF-8");
+                    JSONObject jsonObject = new JSONObject(json);
+                    JSONObject message = jsonObject.getJSONObject("message");
+                    JSONObject body = message.getJSONObject("body");
+                    JSONArray track_list = body.getJSONArray("track_list");
+                    for (int i = 0; i < track_list.length(); i++) {
+                        Music music = new Music();
+                        JSONObject jobj = track_list.getJSONObject(i).getJSONObject("track");
+                        music.trackname = jobj.getString("track_name");
+                        music.artistname = jobj.getString("artist_name");
+                        music.albumname = jobj.getString("album_name");
+                        music.url = jobj.getString("track_share_url");
 
-                            String str = jobj.getString("updated_time");
+                        String str = jobj.getString("updated_time");
 
-                            ArrayList<String> arr=new ArrayList<String>();
-                            for(String s:str.split("-"))
-                            {arr.add(s);
-                                //System.out.println(s);
-                            }
-
-                            music.date = arr.get(1)+"-"+arr.get(2).substring(0,2)+"-"+arr.get(0);
-
-                            Log.d("demo","date: "+music.toString());
-
-                            musics.add(music);
+                        ArrayList<String> arr = new ArrayList<String>();
+                        for (String s : str.split("-")) {
+                            arr.add(s);
+                            //System.out.println(s);
                         }
-                    }
 
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                        music.date = arr.get(1) + "-" + arr.get(2).substring(0, 2) + "-" + arr.get(0);
+
+                        Log.d("demo", "date: " + music.toString());
+
+                        musics.add(music);
+                    }
                 }
 
-                return musics;
-
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
 
-            @Override
-            protected void onPreExecute() {
-                super.onPreExecute();
-                pb.setVisibility(View.VISIBLE);
+            return musics;
 
-
-            }
-
-            @Override
-            protected void onPostExecute(ArrayList<Music> music) {
-                super.onPostExecute(music);
-                pb.setVisibility(View.INVISIBLE);
-
-                //Log.d("demo","music: "+music.get(0).date);
-
-                MusicAdapter musicAdapter = new MusicAdapter(MainActivity.this,R.layout.use_list,music);
-
-                musicAdapter.notifyDataSetChanged();
-
-                lv.setAdapter(musicAdapter);
-
-
-
-
-                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                        String url = musics.get(i).url;
-                        Intent intent = new Intent(getApplicationContext(),ActionView.class);
-
-                        intent.putExtra(WEB_KEY,url);
-
-
-
-                        startActivity(intent);
-
-
-                    }
-                });
-
-            }
         }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pb.setVisibility(View.VISIBLE);
+
+
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<Music> music) {
+            super.onPostExecute(music);
+            pb.setVisibility(View.INVISIBLE);
+
+            //Log.d("demo","music: "+music.get(0).date);
+
+            MusicAdapter musicAdapter = new MusicAdapter(MainActivity.this, R.layout.use_list, music);
+
+            musicAdapter.notifyDataSetChanged();
+
+            lv.setAdapter(musicAdapter);
+
+
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                    String url = musics.get(i).url;
+                    Intent intent = new Intent(getApplicationContext(), ActionView.class);
+
+                    intent.putExtra(WEB_KEY, url);
+
+
+                    startActivity(intent);
+
+
+                }
+            });
+
+        }
+    }
 
 
 }

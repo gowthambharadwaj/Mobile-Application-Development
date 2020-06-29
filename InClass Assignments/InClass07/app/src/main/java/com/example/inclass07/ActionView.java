@@ -1,10 +1,10 @@
 package com.example.inclass07;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ActionView extends AppCompatActivity {
     private WebView webView;
@@ -21,8 +21,6 @@ public class ActionView extends AppCompatActivity {
         webView.setWebViewClient(new WebViewClient());
 
         webView.loadUrl(url);
-
-
 
 
     }

@@ -25,15 +25,14 @@ public class MusicAdapter extends ArrayAdapter<Music> {
 
         Music music = getItem(position);
 
-        if(convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.use_list,parent,false);
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.use_list, parent, false);
         }
 
-        TextView track_name =convertView.findViewById(R.id.trackName);
+        TextView track_name = convertView.findViewById(R.id.trackName);
         TextView artist_name = convertView.findViewById(R.id.artistname);
         TextView album_name = convertView.findViewById(R.id.albumName);
         TextView date = convertView.findViewById(R.id.ddmmyy);
-
 
 
         track_name.setText(music.trackname);
@@ -43,9 +42,6 @@ public class MusicAdapter extends ArrayAdapter<Music> {
 
 
         return convertView;
-
-
-
 
 
     }
