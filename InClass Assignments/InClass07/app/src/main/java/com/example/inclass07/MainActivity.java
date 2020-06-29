@@ -42,7 +42,7 @@ import java.util.Date;
 import java.util.Locale;
 
 /*
-* Submitted by Rajath Anand and Gowtham Bharadwaj
+* Submitted by Gowtham Bharadwaj and Rajath Anand
 * */
 
     public class MainActivity extends AppCompatActivity {
@@ -130,7 +130,7 @@ import java.util.Locale;
                         musics.clear();
 
 
-                        new getDataAsync().execute("http://api.musixmatch.com/ws/1.1/track.search?q="+search_name+"&page_size="+limit+"&"+selected_btn+"=desc&apikey=1931fcdb72773859a9e2375ee6920658");
+                        new getDataAsync().execute("http://api.musixmatch.com/ws/1.1/track.search?q="+search_name+"&page_size="+limit+"&"+selected_btn+"=desc&apikey=877ff80c6d2ea5b74e9fc28b2ca3040b");
 
                     }
                     else {
